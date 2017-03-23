@@ -1,0 +1,164 @@
+@import 'common'
+button
+	background: #fff
+img
+	width: 300px
+.cropper-wrapper
+	position: relative
+.prompt
+	absolute: top 150px left 0px
+	width: 200px
+	margin-left: (@width / 2)
+#product
+	background-color: #fff
+	display: flex
+.product-nav-list
+	width: 20rem
+	float: left
+	li
+		width: 100%
+		background-color: #f8f8f8
+		a
+			display: block
+			padding: 30px 0px
+			margin: 0px 3rem
+			border-bottom: 1px solid #ededed
+			font-size: 3.2rem
+			color: #666
+	li.cur
+		background-color: #fff
+		position: relative
+		&:after
+			content: ""
+			position: absolute
+			top: 0
+			left: 0
+			height: 100%
+			width: 6px
+			background-color: #3190e8
+		a
+			border-bottom-color: #fff
+.productList
+	flex:1
+.product-item-list
+	width: 100%
+	li
+		margin: 0px 6%
+		padding: 30px 0
+		border-bottom:1px solid #ddd
+		position: relative
+		display: flex
+		img
+			width: 10rem
+			height: 10rem
+			float: left
+	.food-cont
+		margin-left: 2rem
+		flex:1
+		h4
+			font-size: 3.6rem
+		p
+			font-size: 2.8rem
+			color: #666
+			margin-top: 6px
+		.price strong
+			color: #f40
+			font-size: 3rem
+		.price span
+			text-decoration: line-through
+	.add-num
+		display: inline-block
+		background-color: #0068b7
+		padding: 0.4rem 1rem
+		border-radius: 2rem
+		color: #fff
+		font-size: 2.8rem
+		position: absolute
+		bottom: 30px
+		right: 0
+
+.rating-cont
+	padding: 30px
+	display: flex
+	margin-bottom: 20px
+	background-color: #fff
+	position: relative
+	z-index: 2
+	.left
+		padding-right: 3rem
+		border-right: 1px solid #ddd
+		text-align: center
+		line-height: 1.5
+		strong
+			font-size: 6.2rem
+			color: #f60
+			line-height: 6.8rem
+		p
+			font-size: 3rem
+	.right
+		flex:1
+		li
+			line-height: 5rem
+			font-size: 3rem
+		.title
+			margin-left: 3rem
+		.score
+			color: #f60
+			margin-left: 3rem
+		.star-five
+			margin-right: 5px
+.rating-list
+	background-color: #fff
+	padding: 0px 30px
+	height: 1120px
+	> ul 
+		> li
+			padding: 30px 0px
+			border-bottom: 1px solid #ddd
+			position: relative
+	ul 
+		li 
+			.userimg
+				width: 8rem
+				height: 8rem
+				border-radius: 50%
+				float: left
+	.rating-user-info
+		margin-left: 10rem
+		font-size: 1rem
+		h4
+			font-size: 4.2rem
+			line-height: 6rem
+		p
+			font-size: 3rem
+			margin-bottom: 10px
+		.foods 
+			span
+				display: inline-block
+				font-size: 2.8rem
+				color: #999
+				border:1px solid #ddd
+				padding: 1rem
+				border-radius: 1rem
+				margin-right: 10px
+				margin-bottom: 10px
+				float: left
+	.date
+		position: absolute
+		top: 30px
+		right: 0
+		font-size: 3rem
+#rating 
+	.rating-star
+		display: inline-block
+		position: relative
+		height: 25px
+		line-height: 25px
+		span
+			display: inline-block
+			height: 25px
+		svg
+			height: 25px
+			width:25px
+			float: left
+			margin: 0px 3px

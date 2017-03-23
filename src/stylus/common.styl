@@ -1,0 +1,57 @@
+html
+	font-size: 62.5%
+body
+	margin:0
+	padding:0
+	font-size: 2.6rem
+	font-family: "Microsoft Yahei"
+	letter-spacing:2px
+	background-color: #ddd
+h1
+h2
+h3
+h4
+	font-weight: normal
+h1
+h2
+h4
+p
+ul
+li
+dl
+	margin: 0
+ul
+	list-style-type: none
+	padding: 0
+a
+	text-decoration: none
+	color: #333
+.clearfix
+	clear: both
+	overflow: hidden
+
+.rating-star span.star
+	position: absolute
+	left: 0
+	top: 0
+	overflow: hidden
+	display: flex
+.rating-star .star svg
+	fill:#f80
+	-webkit-flex: none
+	flex: none
+.rating-star .star-gray svg
+	fill:#ddd
+-pos(type, args)
+	i = 0
+	position: unquote(type)
+	{args[i]}: args[i+1] is a 'unit' ? args[i += 1] : 0
+	{args[i += 1]}: args[i+1] is a 'unit' ? args[i += 1] : 0
+absolute()
+	-pos('absolute', arguments)
+fixed()
+	-pos('fixed', arguments)
+border-radius()
+	-webkit-border-radius: arguments
+	-moz-border-radius: arguments
+	border-radius: arguments
