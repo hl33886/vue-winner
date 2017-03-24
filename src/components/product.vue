@@ -14,7 +14,9 @@
 						<p>月销{{pitem.sellCount}}份 <span>好评率{{pitem.rating}}%</span></p>
 						<p class="price"><strong>{{pitem.price}}</strong> <span>{{pitem.oldPrice}}</span></p>
 					</div>
-					<a href="javascript:;" class="add-num">+</a>
+					<a href="javascript:;" class="add-num">
+            <icon name="add" scale="4"></icon>
+          </a>
 				</li>
 			</ul>
 			</div>
