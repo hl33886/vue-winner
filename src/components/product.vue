@@ -160,8 +160,8 @@ export default {
       this.isCartList = false
       this.totalCount = 0
       this.totalPrice = 0
-      this.productList.forEach(function (arrs, index) {
-        arrs.foods.forEach(function (arr, i) {
+      this.productList.forEach((arrs, index) => {
+        arrs.foods.forEach((arr, i) => {
           Vue.set(arr, 'num', 0)
         })
       })

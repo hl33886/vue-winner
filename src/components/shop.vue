@@ -51,7 +51,7 @@
             <li v-for="item in shopData.infos">{{item}}</li>
           </ul>
         </div>
-        <div class="modal-close" @click="modalShow = !modalShow"><icon name="close" scale="16" style="color: #fff;"></icon></div>
+        <div class="modal-close" @click="modalShow = !modalShow"><icon name="close" scale="16"></icon></div>
       </div>
       </transition>
   </div>
@@ -79,7 +79,6 @@ export default {
       let sellerUrl = 'http://localhost:8080/seller'
       this.$http.get(sellerUrl).then(res => {
         this.shopData = res.body.data
-
         this.supportsLen = this.shopData.supports.length
         this.supportsDesc = this.shopData.supports[0].description
         this.bulletin = this.shopData.bulletin.substring(0, 23) + '...'
