@@ -147,7 +147,6 @@ export default {
         if (pitem.num === 0) {
           let i = this._isArray(pitem, this.cartList)
           this.cartList.splice(i, 1)
-          console.log(this.cartList)
         }
       }
     },
