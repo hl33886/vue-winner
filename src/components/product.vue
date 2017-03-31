@@ -72,17 +72,16 @@ import BScroll from 'better-scroll'
 export default {
   data () {
     return {
-      listHeight: [],
       productList: [],
-      shopData: [],
+      cartList: [],
+      listHeight: [],
       scroll: {},
       activeId: 0,
       scrollY: 0,
       totalPrice: 0,
       totalCount: 0,
       isCartList: false,
-      ispush: true,
-      cartList: []
+      ispush: true
     }
   },
   mounted () {
@@ -160,6 +159,13 @@ export default {
     clearCartList () { // 清空购物车
       this.cartList = []
       this.isCartList = false
+      this.totalCount = 0
+      this.totalPrice = 0
+      this.productList.forEach(function (arrs, index) {
+        arrs.foods.forEach(function (arr, i) {
+          Vue.set(arr, 'num', 0)
+        })
+      })
     },
     _isArray (value, arr) { // 判断元素是否在数组内
       for (var i = 0; i < arr.length; i++) {
