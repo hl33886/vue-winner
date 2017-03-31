@@ -1,6 +1,8 @@
 <template>
   <div id="shop">
+
       <div class="shop-header">
+          <div class="nav"><icon name="arrow-left" scale="5" style="color: #fff;"></icon></div>
           <div class="header-top">
               <img :src="shopData.avatar">
               <div class="header-top-cont">
@@ -18,6 +20,7 @@
         <li><router-link to="/product/product">商品</router-link></li>
         <li><router-link to="/rating/ratings">评价</router-link></li>
       </ul>
+      <transition name="fade" mode="out-in">
       <div class="modal-wrapper" v-if="modalShow">
         <div class="modal-cont">
           <h2>{{shopData.name}}</h2>
@@ -50,6 +53,7 @@
         </div>
         <div class="modal-close" @click="modalShow = !modalShow"><icon name="close" scale="16" style="color: #fff;"></icon></div>
       </div>
+      </transition>
   </div>
 </template>
 

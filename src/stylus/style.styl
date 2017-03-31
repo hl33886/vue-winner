@@ -13,6 +13,9 @@ img
 	color: #f40
 .shop-header
 	background-color: #b9aebf
+	padding-top:20px
+	.nav
+		padding:0px 20px
 .header-top
 	height: auto
 	clear: both
@@ -48,22 +51,27 @@ img
 	.more
 		float: right
 		color: #fff
-.shop-bar
-	ackground-color: #fff
-	position: relative
-	z-index: 2
-	display: flex
-	li
-		background-color: #fff
-		text-align: center
-		height: 8rem
-		line-height: 8rem
-		font-size: 3.6rem
-		border-bottom: 1px solid #666
-		flex:1
-	li.active 
-		a
-			color: #f40
+.fade-enter-active
+	animation: fade-in .5s
+
+.fade-leave-active
+	animation-name: fade-out .5s
+@keyframes fade-in {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1
+  }
+  100% {
+    opacity: 0
+  }
+}
 .modal-wrapper
 	position: fixed
 	top: 0
@@ -74,7 +82,7 @@ img
 	width: 100%
 	background-color: #262626
 	color: #fff
-	z-index: 3
+	z-index: 4
 .modal-cont
 	padding: 0 8rem
 	padding-top: 10rem
@@ -113,9 +121,152 @@ img
 	left: 50%
 	margin-left: -6rem
 	width:12rem
+	svg
+		fill:#fff
 #product
 	background-color: #fff
 	display: flex
+	position: absolute
+	top: 449px
+	bottom: 0
+	width: 100%
+	padding-bottom: 158px
+	overflow: hidden
+	.edit-num
+		display: flex
+		a
+			display: inline-block
+			color: #3190e8
+			flex: 1
+		span
+			display: inline-block
+			flex: 1
+			padding: 0 1rem
+			line-height: 4.5rem
+			text-align: center
+	footer
+		position: absolute
+		bottom: 0
+		height: 158px
+		width: 100%
+		background-color: #3d3d3f
+		display: flex
+		z-index: 3
+		.cart
+			flex: 3
+			padding-left: 3rem
+			.icon
+				display: inline-block
+				width: 118px
+				height: 118px
+				position: absolute
+				top: -3rem
+				border: 1rem solid #444
+				border-radius: 50%
+				background-color: #535356
+				color: #3d3d3f
+				z-index: 2
+				&.isbuy
+					color: #3190e8
+					background-color: #fff
+				em
+					position: absolute
+					right: -1rem
+					top: -2.5rem
+					display: inline-block
+					background-color: #ff461d
+					border-radius: 50%
+					color: #fff
+					width: 3rem
+					padding: 7px 8px
+					text-align: center
+			.price
+				display: inline-block
+				color: #fff
+				margin-left: 14rem
+				font-size: 4rem
+				padding-top: 2.6rem
+				em
+					font-size: 2.6rem
+					display:block		
+		.gobuy
+			flex: 1
+			background-color: #444
+			color: #fff
+			line-height: @height
+			text-align: center
+			font-size: 4rem
+			&.isbuy
+				background-color: #4cd964
+		.cart-list
+			position: absolute
+			bottom: 158px
+			width: 100%
+			
+			.title
+				padding: 1.5rem 2rem
+				background-color: #eceff1
+				height: 6rem
+				line-height: 6rem
+				span
+					display: inline-block
+					font-size: 3.8rem
+					padding-left: 1.2rem
+					border-left: 0.8rem solid #3190e8
+				a
+					float: right
+					padding-top: 1rem
+					line-height: 3.8rem
+					font-size: 3rem
+					svg
+						float: left
+						margin-right: 0.8rem
+			ul
+				background-color: #fff
+				li
+					height: 5rem
+					line-height: 5rem
+					padding: 3.6rem 2rem
+					font-size: 3rem
+					display: flex
+					&:not(:last-child)
+						border-bottom: 1px solid #eee
+					h3
+						flex: 6
+					.price
+						flex: 2
+						color: #f60
+						font-size: 4.2rem
+					.edit-num
+						flex: 2
+					
+.cart-view
+	position: fixed
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0
+	width: 100%
+	height: 100%
+	z-index: 2
+	background-color: rgba(0, 0, 0, 0.3)
+			
+.shop-bar
+	background-color: #fff
+	position: relative
+	z-index: 2
+	display: flex
+	li
+		background-color: #fff
+		text-align: center
+		height: 8rem
+		line-height: 8rem
+		font-size: 3.6rem
+		border-bottom: 1px solid #666
+		flex:1
+	li.active 
+		a
+			color: #f40
 .product-nav-list
 	width: 20rem
 	float: left
@@ -170,15 +321,11 @@ img
 			font-size: 3rem
 		.price span
 			text-decoration: line-through
-	.add-num
-		display: inline-block
-		background-color: #3190e8
-		padding: 0.2rem 0.5rem
-		border-radius: 50%
-		color: #fff
+	.edit-num
 		position: absolute
 		bottom: 30px
 		right: 0
+
 
 .rating-cont
 	padding: 30px

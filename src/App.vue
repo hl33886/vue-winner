@@ -10,9 +10,8 @@
 
 <script>
 import shop from '@/components/shop'
-import Product from '@/components/product'
 export default {
   name: 'app',
-  components: {shop, Product}
+  components: {shop}
 }
 </script>

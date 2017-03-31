@@ -1,20 +1,18 @@
 {
-  "name": "vuejs",
+  "name": "vuetest",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "wangh",
+  "author": "wanghong <3176258665@qq.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
-    "lint": "eslint --ext .js,.vue src",
-    "svg": "vsvg -s ./static/svg/src -t ./src/icons"
+    "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
-    "cropper": "^3.0.0-beta",
+    "cropper": "^3.0.0-rc",
     "jquery": "^3.2.1",
     "vue": "^2.2.2",
-    "vue-resource": "^1.2.1",
     "vue-router": "^2.2.0"
   },
   "devDependencies": {
@@ -56,9 +54,9 @@
     "url-loader": "^0.5.7",
     "vue-loader": "^11.1.4",
     "vue-resource": "^1.2.1",
+    "vue-router": "^2.3.0",
     "vue-style-loader": "^2.0.0",
     "vue-svg-icon": "^1.2.9",
-    "vue-svgicon": "^1.1.4",
     "vue-template-compiler": "^2.2.4",
     "webpack": "^2.2.1",
     "webpack-bundle-analyzer": "^2.2.1",
