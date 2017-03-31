@@ -39,7 +39,7 @@
           <div v-if="isCartList && totalCount>0" class="cart-list fade-transition" transition="fade">
             <div class="title">
               <span>购物车</span>
-              <a href="javascript:;"><icon name="delete" scale="5"></icon>清空</a>
+              <a href="javascript:;" @click="clearCartList"><icon name="delete" scale="5"></icon>清空</a>
             </div>
             <ul>
               <li v-for="item in cartList">
@@ -153,9 +153,13 @@ export default {
       }
     },
     toggleCart () {
-      if (this.totalCount > 0) {
+      if (this.totalCount > 0) { // 选菜单后才可点击
         this.isCartList = !this.isCartList
       }
+    },
+    clearCartList () { // 清空购物车
+      this.cartList = []
+      this.isCartList = false
     },
     _isArray (value, arr) { // 判断元素是否在数组内
       for (var i = 0; i < arr.length; i++) {
