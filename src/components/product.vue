@@ -36,13 +36,13 @@
         </div>
         <a class="gobuy" href="javascript:;" :class="{'isbuy':totalCount>0}">去结算</a>
         <transition name="fade" mode="out-in">
-          <div v-if="isCartList" class="cart-list fade-transition" transition="fade">
+          <div v-if="isCartList && totalCount>0" class="cart-list fade-transition" transition="fade">
             <div class="title">
               <span>购物车</span>
               <a href="javascript:;"><icon name="delete" scale="5"></icon>清空</a>
             </div>
             <ul>
-              <li v-for="item in cartList" v-if="item.num>0">
+              <li v-for="item in cartList">
                 <h3>{{item.name}}</h3>
                 <span class="price">￥{{item.price}}</span>
                 <div class="edit-num">
@@ -60,7 +60,7 @@
         </transition>
       </footer>
       <transition name="fade" mode="out-in">
-        <div v-if="isCartList" class="cart-view" @click="toggleCart"></div>
+        <div v-if="isCartList && totalCount>0" class="cart-view" @click="toggleCart"></div>
       </transition>
 	</div>
 </template>
@@ -119,7 +119,7 @@ export default {
         $('#product').css({'position': 'absolute', 'top': this.t})
       }
     },
-    changeItem (index) {
+    changeItem (index) {//切换左侧标签
       let el = this.$refs.productList.getElementsByTagName('ul')
       this.scroll.scrollToElement(el[index], 300)
     },
@@ -145,6 +145,11 @@ export default {
         pitem.num --
         this.totalCount --
         this.totalPrice -= pitem.price
+        if (pitem.num === 0) {
+          let i = this._isArray(pitem, this.cartList)
+          this.cartList.splice(i, 1)
+          console.log(this.cartList)
+        }
       }
     },
     toggleCart () {
@@ -152,14 +157,14 @@ export default {
         this.isCartList = !this.isCartList
       }
     },
-    _isArray (value, arr) {
+    _isArray (value, arr) {//判断元素是否在数组内
       for (var i = 0; i < arr.length; i++) {
         if (arr[i] === value) {
           return i
         }
       }
     },
-    _initScroll () {
+    _initScroll () {//滚动初始化
       this.scroll = new BScroll(this.$refs.productList, {
         startX: 0,
         startY: 0,
