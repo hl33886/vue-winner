@@ -119,7 +119,7 @@ export default {
         $('#product').css({'position': 'absolute', 'top': this.t})
       }
     },
-    changeItem (index) {//切换左侧标签
+    changeItem (index) { // 切换左侧标签
       let el = this.$refs.productList.getElementsByTagName('ul')
       this.scroll.scrollToElement(el[index], 300)
     },
@@ -157,14 +157,14 @@ export default {
         this.isCartList = !this.isCartList
       }
     },
-    _isArray (value, arr) {//判断元素是否在数组内
+    _isArray (value, arr) { // 判断元素是否在数组内
       for (var i = 0; i < arr.length; i++) {
         if (arr[i] === value) {
           return i
         }
       }
     },
-    _initScroll () {//滚动初始化
+    _initScroll () { // 滚动初始化
       this.scroll = new BScroll(this.$refs.productList, {
         startX: 0,
         startY: 0,
