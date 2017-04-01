@@ -56,6 +56,13 @@ img
 
 .fade-leave-active
 	animation-name: fade-out .5s
+	
+.upfade-enter-active
+	animation: upfade-in .5s
+	
+.upfade-leave-active
+	animation-name: upfade-out .5s
+	
 @keyframes fade-in {
   0% {
     opacity: 0
@@ -72,6 +79,24 @@ img
     opacity: 0
   }
 }
+@keyframes upfade-in {
+  0% {
+    bottom: 0
+  }
+  100% {
+    bottom: 158px
+  }
+}
+@keyframes upfade-out {
+  0% {
+    bottom: 158px
+  }
+  100% {
+    bottom: 0
+  }
+}
+
+	
 .modal-wrapper
 	position: fixed
 	top: 0
@@ -132,29 +157,44 @@ img
 	width: 100%
 	padding-bottom: 158px
 	overflow: hidden
+	.circleicon
+		position: fixed
+		color: #3190e8
+		// transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1)
+		z-index: -1
+		&.roll
+			animation: circleroll 2s
 	.edit-num
 		display: flex
+		z-index: 2
 		a
 			display: inline-block
 			color: #3190e8
 			flex: 1
+			background-color: #fff
+			position: relative
+			z-index: 1
+			
 		span
 			display: inline-block
 			flex: 1
 			padding: 0 1rem
 			line-height: 4.5rem
 			text-align: center
+		
 	footer
 		position: absolute
 		bottom: 0
 		height: 158px
 		width: 100%
-		background-color: #3d3d3f
 		display: flex
 		z-index: 3
 		.cart
 			flex: 3
 			padding-left: 3rem
+			background-color: #3d3d3f
+			position: relative
+			z-index: 3
 			.icon
 				display: inline-block
 				width: 118px
@@ -169,6 +209,8 @@ img
 				&.isbuy
 					color: #3190e8
 					background-color: #fff
+				&.cart-icon-animate
+					animation: carticon 0.3s
 				em
 					position: absolute
 					right: -1rem
@@ -196,13 +238,15 @@ img
 			line-height: @height
 			text-align: center
 			font-size: 4rem
+			position: relative
+			z-index: 3
 			&.isbuy
 				background-color: #4cd964
 		.cart-list
 			position: absolute
 			bottom: 158px
 			width: 100%
-			
+			z-index: 1
 			.title
 				padding: 1.5rem 2rem
 				background-color: #eceff1
@@ -239,7 +283,31 @@ img
 						font-size: 4.2rem
 					.edit-num
 						flex: 2
-					
+
+@keyframes carticon
+{
+	0% {
+		transform: scale(1, 1)
+	}
+	50% {
+		transform: scale(0.8, 0.8)
+	}
+	100% {
+		transform: scale(1, 1)
+	}
+}
+@-webkit-keyframes carticon
+{
+	0% {
+		transform: scale(1, 1)
+	}
+	50% {
+		transform: scale(0.8, 0.8)
+	}
+	100% {
+		transform: scale(1, 1)
+	}
+}		
 .cart-view
 	position: fixed
 	top: 0

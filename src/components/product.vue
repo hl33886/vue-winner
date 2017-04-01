@@ -21,9 +21,10 @@
                 </a>
               </transition>
               <span v-if="pitem.num>0">{{pitem.num}}</span>
-              <a href="javascript:;" @click="changeNum(pitem, 'add')">
+              <a href="javascript:;" @click="changeNum(pitem, 'add', $event)">
                 <icon name="add" scale="6"></icon>
-              </a>              
+              </a>
+                            
             </div>
   				</li>
   			</ul>
@@ -31,12 +32,12 @@
   		</div>
       <footer>
         <div class="cart" @click="toggleCart">
-          <span class="icon" :class="{'isbuy':totalCount>0}"><icon name="cart" scale="13"></icon><em v-if="totalCount>0">{{totalCount}}</em></span>
+          <span ref="cartIcon" class="icon" :class="{'isbuy':totalCount>0}"><icon name="cart" scale="13"></icon><em v-if="totalCount>0">{{totalCount}}</em></span>
           <span class="price">￥{{totalPrice}}<em>配送费4元</em></span>
         </div>
         <a class="gobuy" href="javascript:;" :class="{'isbuy':totalCount>0}">去结算</a>
-        <transition name="fade" mode="out-in">
-          <div v-if="isCartList && totalCount>0" class="cart-list fade-transition" transition="fade">
+        <transition name="upfade">
+          <div v-if="isCartList && totalCount>0" class="cart-list">
             <div class="title">
               <span>购物车</span>
               <a href="javascript:;" @click="clearCartList"><icon name="delete" scale="5"></icon>清空</a>
@@ -62,6 +63,7 @@
       <transition name="fade" mode="out-in">
         <div v-if="isCartList && totalCount>0" class="cart-view" @click="toggleCart"></div>
       </transition>
+      <div class="circleicon"><icon name="circle" scale="5"></icon></div>
 	</div>
 </template>
 <script>
@@ -122,7 +124,7 @@ export default {
       let el = this.$refs.productList.getElementsByTagName('ul')
       this.scroll.scrollToElement(el[index], 300)
     },
-    changeNum (pitem, way) {
+    changeNum (pitem, way, event) {
       if (way === 'add') {
         if (!pitem.num) {
           Vue.set(pitem, 'num', 1)
@@ -140,6 +142,7 @@ export default {
         if (this.ispush) {
           this.cartList.push(pitem)
         }
+        this.cartIconAnimate(event)
       } else {
         pitem.num --
         this.totalCount --
@@ -165,6 +168,22 @@ export default {
           Vue.set(arr, 'num', 0)
         })
       })
+    },
+    cartIconAnimate (event) { // 添加菜单动画效果
+      let target = event.currentTarget
+      let beginX = $(target).offset().left
+      let beginY = $(target).offset().top
+      let stopX = $(this.$refs.cartIcon).offset().left
+      let stopY = $(this.$refs.cartIcon).offset().top
+      $('.circleicon').css({'left': beginX, 'top': beginY, 'z-index': 2})
+      $('.circleicon').animate({'left': stopX, 'top': stopY + 10, marginLeft: '50px'}, 400, () => {
+        setTimeout(() => {
+          $(this.$refs.cartIcon).addClass('cart-icon-animate')
+        }, 0)
+      })
+      setTimeout(() => {
+        $(this.$refs.cartIcon).removeClass('cart-icon-animate')
+      }, 300)
     },
     _isArray (value, arr) { // 判断元素是否在数组内
       for (var i = 0; i < arr.length; i++) {
